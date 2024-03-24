@@ -1,0 +1,15 @@
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb://localhost:27017/rssTranslaion"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Rss {
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  originalLanguage String
+  targetLanguage   String
+  customId         String?
+}
